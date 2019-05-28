@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [createPost, setPost] =useState('');
+  const [postList, setPostList] =useState('');
+  const addPost=()=>{
+    setPostList([...postList, createPost]);   
+      setPost('');
+  };
+  
+
+  useEffect(()=>{
+    fetch('https://private-c3edb-postsmock.apiary-mock.com/posts')
+.then(response => response.json())
+.then(data => {
+  console.log(data);   
+})
+.catch(error => console.error(error))
+ },[]);
+
+ 
+ return (
+  <div className="App">
+    <div>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default App;
