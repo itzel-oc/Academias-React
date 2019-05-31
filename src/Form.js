@@ -66,9 +66,11 @@ function Form() {
         <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem >TRAVEL</MenuItem>
+          <MenuItem >LIFESTYLE</MenuItem>
+          <MenuItem >BUSINESS</MenuItem>
+          <MenuItem >FOOD</MenuItem>
+          <MenuItem >WORK</MenuItem>
         <TextField type="text" name="img" placeholder='ImageUrl' />
         </form>
           <Form />
