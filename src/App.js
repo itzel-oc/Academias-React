@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import axios from 'axios';
+import Post from './Post'
+import Button from '@material-ui/core/Button'
+import './Card.css'
+import CardCompletePost from './CardCompletePost';
+import Nav from './Nav';
+import Header from './Header'
 
 function App() {
-  const [createPost, setPost] =useState('');
-  const [postList, setPostList] =useState('');
-  const addPost=()=>{
-    setPostList([...postList, createPost]);   
-      setPost('');
-  };
+
+  const handleClick = (e) => {
+
+    }  
   
 
-  useEffect(()=>{
-    fetch('https://private-c3edb-postsmock.apiary-mock.com/posts')
-.then(response => response.json())
-.then(data => {
-  console.log(data);   
-})
-.catch(error => console.error(error))
- },[]);
+  const [ postList, setPostList ] = useState( [] ); 
 
- 
- return (
-  <div className="App">
+   useEffect(()=>{
+     axios.get('https://private-c3edb-postsmock.apiary-mock.com/posts')
+     .then(function(response) {
+       return setPostList(response.data); 
+ })
+ .catch(function(error){ console.error(error)})
+  },[]);
+
+  return (
     <div>
-
+      <Header/>
+      <Router>
+      <div>
+        <Route path="/" exact render={()=><Post posts={postList}/>} />
+        <Route path="/completePost/" component={CardCompletePost} />        
+      </div>
+    </Router>    
     </div>
-  </div>
-);
+  );
 }
 
+
 export default App;
+
