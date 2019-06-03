@@ -5,8 +5,10 @@ import Post from './Post'
 import Button from '@material-ui/core/Button'
 import './Card.css'
 import CardCompletePost from './CardCompletePost';
-import Nav from './Nav';
 import Header from './Header'
+import NewPost from './NewPost'
+import VisiblePosts from './VisiblePosts';
+
 
 function App() {
 
@@ -25,12 +27,17 @@ function App() {
  .catch(function(error){ console.error(error)})
   },[]);
 
+  const PostFilter = postList.filter( post => {
+    if (post.category === 'travel');
+    return post.category === post.category ;                                    
+    });
+
   return (
     <div>
-      <Header/>
+      <Header posts={postList}/>
       <Router>
       <div>
-        <Route path="/" exact render={()=><Post posts={postList}/>} />
+        <Route path="/" exact render={()=><Post posts={postList} />} />
         <Route path="/completePost/" component={CardCompletePost} />        
       </div>
     </Router>    

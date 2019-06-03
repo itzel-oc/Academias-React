@@ -11,22 +11,25 @@ import NavBar from './NavBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
-import Form from './Form'
+import CreatePost from './CreatePost'
 
-function Header() {
+
+function Header(props) {
+   
     return(
          <div>
-         <h3 class="sub">[</h3><span class="subtit"> Making your Life Easier </span><h3 class="sub">]</h3>
+         <h3 class="sub" style={{align:'center'}}>[</h3><span class="subtit" style={{textAlign:'center'}}> Making your Life Easier </span><h3 class="sub">]</h3>
          <h1 class="titulo">Discovering the World</h1> 
-         <div className="menu">
-             <button class="btn active" onclick="filterSelection('all')"> All</button>
-             <button class="btn" onclick="filterSelection('Travel')"> Travel</button>
-             <button class="btn" onclick="filterSelection('Lifestyle')"> Lifestyle</button>
-             <button class="btn" onclick="filterSelection('Business')"> Business</button>
-             <button class="btn" onclick="filterSelection('Food')"> Food</button>
-             <button class="btn" onclick="filterSelection('Work')"> Work</button>
+         <div className="menu" >
+
+             <Button class="btn active" onClick="filterSelection('all')"> All</Button>
+             <Button class="btn" onClick="filterSelection('Lifestyle')"> Travel</Button>
+             <Button class="btn" onClick="filterSelection('Lifestyle')"> Lifestyle</Button>
+             <Button class="btn" onClick="filterSelection('Business')"> Business</Button>
+             <Button class="btn" onClick="filterSelection('Food')"> Food</Button>
+             <Button class="btn" onClick="filterSelection('Work')"> Work</Button>
              </div> 
-             <Form />
+             <CreatePost />
              </div>
 
         

@@ -27,6 +27,21 @@ function PostCard( props ) {
 
   // ])
 
+/*   <div>
+    {posts
+      .filter(
+        ({ category }) =>
+          displayCategory === category || displayCategory === "all"
+      )
+      .map(({ category, titulo }) => (
+        <Post
+          key={`PostItems-${id}`}
+          category={category}
+          title={title}
+        />
+      ))}
+  </div> */
+
   return (
     props.posts.map( (post) => 
   <Grid item xs={12} sm={6} key={post.id}> 
@@ -36,9 +51,9 @@ function PostCard( props ) {
         <CardMedia component="img" src={post.image} style={{maxHeight:"360px"}}/>
         <CardContent className="postCard"  style={{position: "absolute", padding: "30px", bottom: "0", color:"white"}}  >
           <Typography variant="h3">{post.title}</Typography>
-          <Typography >3 Comments</Typography>
+          <Typography >{`${post.comments.length} comments `}</Typography>
           <Typography >{post.shortDescription}</Typography>
-          <Typography >{post.category}</Typography>
+          <Typography style={{fontWeight:'bold'}}>{post.category}</Typography>
         </CardContent>
       </CardActionArea>
       </Link>
