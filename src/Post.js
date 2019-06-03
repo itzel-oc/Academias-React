@@ -1,5 +1,6 @@
 import React  from 'react';
-import PostCard from './PostCard';import Card from '@material-ui/core/Card';
+import PostCard from './PostCard';
+import Card from '@material-ui/core/Card';
 import './Card.css';
 import {BrowserRouter as Router, Route } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
@@ -17,7 +18,6 @@ function Post( props ) {
 
        <Grid container direction="row" > 
        {/* <button onClick={propiedades}> Da clic </button> */}
-
          <PostCard posts={props.posts} />
        </Grid>    
 

@@ -16,36 +16,40 @@ import PostCard from './PostCard';
 
 
 function Header(props) {
+   
+
+const [filter, setFilter]=useState([]);
+
     function propiedades(posts){
         return(
         console.log(props.posts));
     }
 
-    //  PostFilter = props.posts.filter( post => {
-    //     if (props.posts.category === 'travel');
-    //     return <Post /> ;                                    
-    //     });
-        function PostFilter (posts) {
-            if (props.posts.category ==='travel') {
-                return (
-                <PostCard /> );
-                }}
+
+    const handleClick = (event) => {
+        setFilter({
+            postFilter: event.target.value
+          })
+          props.onClick(event.target.value)
+          console.log(event.target.value);
+    } 
 
     return(
-         <div>
-             
-         <h3 class="sub" style={{align:'center'}}>[</h3><span class="subtit" style={{textAlign:'center'}}> Making your Life Easier </span><h3 class="sub">]</h3>
+        
+         <div style={{margin: "0 auto"}} align="center">             
+         <h3 class="sub">[</h3><span class="subtit" > Making your Life Easier </span><h3 class="sub">]</h3>
          <h1 class="titulo">Discovering the World</h1> 
          <div className="menu" >
          {/* <button onClick={propiedades}> Da clic </button> */}
 
-             <Button class="btn active" onClick={propiedades}> All</Button>
-             <Button class="btn" onClick={PostFilter}> Travel</Button>
-             <Button class="btn" onClick="filterSelection('Lifestyle')"> Lifestyle</Button>
-             <Button class="btn" onClick="filterSelection('Business')"> Business</Button>
-             <Button class="btn" onClick="filterSelection('Food')"> Food</Button>
-             <Button class="btn" onClick="filterSelection('Work')"> Work</Button>
+             <Button class="btn active" onClick={handleClick} value='all' name='all'> All</Button>
+             <Button class="btn" onClick={handleClick} value='travel' name='travel'> Travel</Button>
+             <Button class="btn" onClick={handleClick} value='lifestyle' name='lifestyle'> Lifestyle</Button>
+             <Button class="btn" onClick="filterSelection" value='business'> Business</Button>
+             <Button class="btn" onClick="filterSelection" value='food'> Food</Button>
+             <Button class="btn" onClick="filterSelection" value='work'> Work</Button>
              </div> 
+            
              <CreatePost />
              </div>   
     )

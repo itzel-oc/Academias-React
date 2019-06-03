@@ -26,17 +26,21 @@ function App() {
  .catch(function(error){ console.error(error)})
   },[]);
 
-  const PostFilter = postList.filter( post => {
-    if (post.category === 'travel');
-    return post.category === post.category ;                                    
-    });
-
+  function postFilter(posts){
+    postList.filter((postit)=>postit.category=='travel');
+  }
     
+
+ const [varFilter, setFilter]=useState('');
+
+ 
   return (
     <div>
       <Header posts={postList}/>
+      <CardCompletePost posts={postList}/>
       <Router>
       <div>
+      {/* <Route path="/" exact render={()=><Post posts={postList} posts={postList.filter((postit)=>postit.category=='travel')}/>} /> */}
         <Route path="/" exact render={()=><Post posts={postList} />} />
         <Route path="/completePost/" component={CardCompletePost} />        
       </div>

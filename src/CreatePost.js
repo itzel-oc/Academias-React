@@ -4,6 +4,7 @@ import { TextField, Button, Icon } from '@material-ui/core'
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import EditIcon from '@material-ui/icons/Edit';
 
 
 function rand() {
@@ -29,6 +30,14 @@ const submitButtonStyle = {
   margin: '10px'
 }
 
+
+const addStyle = { 
+  backgroundColor: 'coral', 
+  color: 'white',
+  borderRadius: "50%",
+  padding: "10px",
+  float:"right"
+}
 const useStyles = makeStyles(theme => ({
     paper: {
       position: 'absolute',
@@ -78,7 +87,7 @@ function CreatePost (props) {
     return (
         <div>
       <Typography gutterBottom></Typography>
-      <Button onClick={handleOpen}>         <Icon>add</Icon></Button>
+      <Button onClick={handleOpen}>         <EditIcon style={addStyle}/></Button>
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"

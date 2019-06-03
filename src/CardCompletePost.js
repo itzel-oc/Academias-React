@@ -9,13 +9,19 @@ import IconButton from '@material-ui/core/IconButton';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import './Card.css';
 import Post from './Post'
+import PostCard from './PostCard';
 
 function CardCompletePost( props ) {
-  const { image, title, shortDescription, description,category}=props.postList;
 
-  console.log(props.postList);
+  function propiedades(posts){
+    return(
+    console.log(props.posts));
+}
+
   return (
-    <Post posts={props.postList} />
+    <div>
+    <button onClick={propiedades}> Da clic </button>
+    </div>
   );
 }
 

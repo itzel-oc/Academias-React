@@ -10,6 +10,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import './Card.css';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Post from './Post'
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import EditIcon from '@material-ui/icons/Edit';
 
 function PostCard( props ) {
 
@@ -46,14 +48,16 @@ function PostCard( props ) {
     props.posts.map( (post) => 
   <Grid item xs={12} sm={6} key={post.id}> 
     <Card> 
-    <Link to ="/completePost">    
+    <Link to ="/completePost" >    
     <CardActionArea>     
-        <CardMedia component="img" src={post.image} style={{maxHeight:"360px"}}/>
+        <CardMedia component="img" src={post.image} style={{maxHeight:"370px"}}/>
         <CardContent className="postCard"  style={{position: "absolute", padding: "30px", bottom: "0", color:"white"}}  >
           <Typography variant="h3">{post.title}</Typography>
           <Typography >{`${post.comments.length} comments `}</Typography>
           <Typography >{post.shortDescription}</Typography>
           <Typography style={{fontWeight:'bold'}}>{post.category}</Typography>
+          <DeleteOutlinedIcon  style={{float:"right"}}/>
+          <EditIcon   style={{float:"right"}}/>
         </CardContent>
       </CardActionArea>
       </Link>
