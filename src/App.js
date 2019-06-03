@@ -15,7 +15,6 @@ function App() {
   const handleClick = (e) => {
 
     }  
-  
 
   const [ postList, setPostList ] = useState( [] ); 
 
@@ -32,6 +31,7 @@ function App() {
     return post.category === post.category ;                                    
     });
 
+    
   return (
     <div>
       <Header posts={postList}/>

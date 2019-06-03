@@ -6,9 +6,18 @@ import Grid from '@material-ui/core/Grid';
 
 
 function Post( props ) {
+
+  function propiedades(posts){
+    return(
+    console.log(props.posts));
+}
+
    return (
      <div>
+
        <Grid container direction="row" > 
+       {/* <button onClick={propiedades}> Da clic </button> */}
+
          <PostCard posts={props.posts} />
        </Grid>    
 
