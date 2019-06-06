@@ -8,7 +8,7 @@ import CardCompletePost from './CardCompletePost';
 import Header from './Header'
 import NewPost from './NewPost'
 import VisiblePosts from './VisiblePosts';
-
+import PostCard from './PostCard'
 
 function App() {
 
@@ -17,32 +17,43 @@ function App() {
     }  
 
   const [ postList, setPostList ] = useState( [] ); 
+  const [initialList, setInitialList] = useState( [] );
+  const [ filterCat, setFilterCat ] = useState( 'all' ); 
 
    useEffect(()=>{
      axios.get('https://private-c3edb-postsmock.apiary-mock.com/posts')
      .then(function(response) {
+       setInitialList(response.data);
        return setPostList(response.data); 
  })
  .catch(function(error){ console.error(error)})
   },[]);
 
-  function postFilter(posts){
-    postList.filter((postit)=>postit.category=='travel');
-  }
-    
+  // function postFilter(posts){
+  //   postList.filter((postit)=>postit.category=='travel');
+  // }
 
- const [varFilter, setFilter]=useState('');
+   function testFilter (value){
+    console.log(value)
+    if(value === 'all'){
+      setPostList(initialList);
+    }else {
+      console.log('entro')
+      console.log(postList)
+      setPostList(initialList.filter((postit)=>postit.category== value ));
+    }
+  }
 
  
   return (
     <div>
-      <Header posts={postList}/>
+      <Header posts={postList} handlePropFilter={testFilter}/>
       <CardCompletePost posts={postList}/>
       <Router>
       <div>
       {/* <Route path="/" exact render={()=><Post posts={postList} posts={postList.filter((postit)=>postit.category=='travel')}/>} /> */}
         <Route path="/" exact render={()=><Post posts={postList} />} />
-        <Route path="/completePost/" component={CardCompletePost} />        
+        <Route path="/completePost/" exact render={()=><PostCard posts={postList[0]} handleFilterC={setFilterCat}/>} />        
       </div>
     </Router>    
     </div>

@@ -26,13 +26,17 @@ const [filter, setFilter]=useState([]);
     }
 
 
-    const handleClick = (event) => {
-        setFilter({
-            postFilter: event.target.value
-          })
-          props.onClick(event.target.value)
-          console.log(event.target.value);
-    } 
+    // const handleClick = (event) => {
+    //     setFilter({
+    //         postFilter: event.target.value
+    //       })
+    //       props.onClick(event.target.value)
+    //       console.log(event.target.value);
+    // } 
+
+    const handleFilter=(event)=>{
+     props.handlePropFilter(event.target.value);
+    }
 
     return(
         
@@ -42,12 +46,13 @@ const [filter, setFilter]=useState([]);
          <div className="menu" >
          {/* <button onClick={propiedades}> Da clic </button> */}
 
-             <Button class="btn active" onClick={handleClick} value='all' name='all'> All</Button>
-             <Button class="btn" onClick={handleClick} value='travel' name='travel'> Travel</Button>
-             <Button class="btn" onClick={handleClick} value='lifestyle' name='lifestyle'> Lifestyle</Button>
-             <Button class="btn" onClick="filterSelection" value='business'> Business</Button>
-             <Button class="btn" onClick="filterSelection" value='food'> Food</Button>
-             <Button class="btn" onClick="filterSelection" value='work'> Work</Button>
+
+             <Button class="btn active" onClick={handleFilter} value='all' name='all'> All</Button>
+             <Button class="btn" onClick={handleFilter} value='travel' name='travel'> Travel</Button>
+             <Button class="btn" onClick={handleFilter} value='lifestyle' name='lifestyle'> Lifestyle</Button>
+             <Button class="btn" onClick={handleFilter} value='business'> Business</Button>
+             <Button class="btn" onClick={handleFilter} value='food'> Food</Button>
+             <Button class="btn" onClick={handleFilter} value='work'> Work</Button>
              </div> 
             
              <CreatePost />
