@@ -1,25 +1,23 @@
 import React  from 'react';
 import PostCard from './PostCard';
-import Card from '@material-ui/core/Card';
 import './Card.css';
-import {BrowserRouter as Router, Route } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button'
 
 
 function Post( props ) {
 
-  function propiedades(posts){
-    return(
-    console.log(props.posts));
-}
+  function backPreviousPage(){
+    props.history.goBack()
+  }
 
    return (
      <div>
 
        <Grid container direction="row" > 
-       {/* <button onClick={propiedades}> Da clic </button> */}
-         <PostCard posts={props.posts} />
+         <PostCard posts={props.posts} handleOpenPost={props.handleOpenPost}/>
        </Grid>    
+       <Button variant="contained" color="primary" onClick={backPreviousPage} >Go Back</Button>
 
      </div>
    );

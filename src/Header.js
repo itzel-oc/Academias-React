@@ -1,38 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import axios from 'axios';
-import Post from './Post'
+import React from 'react';
 import Button from '@material-ui/core/Button'
 import './Card.css'
-import CardCompletePost from './CardCompletePost';
-import Nav from './Nav';
 import './Styles.css'
-import NavBar from './NavBar';
-import { makeStyles } from '@material-ui/core/styles';
-import Popover from '@material-ui/core/Popover';
-import Typography from '@material-ui/core/Typography';
 import CreatePost from './CreatePost'
-import PostCard from './PostCard';
 
 
 function Header(props) {
-   
-
-const [filter, setFilter]=useState([]);
-
-    function propiedades(posts){
-        return(
-        console.log(props.posts));
-    }
-
-
-    // const handleClick = (event) => {
-    //     setFilter({
-    //         postFilter: event.target.value
-    //       })
-    //       props.onClick(event.target.value)
-    //       console.log(event.target.value);
-    // } 
 
     const handleFilter=(event)=>{
      props.handlePropFilter(event.target.value);
