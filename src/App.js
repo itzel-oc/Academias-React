@@ -16,10 +16,6 @@ import { NavLink } from 'react-router-dom';
 
 function App() {
 
-  const handleClick = (e) => {
-
-    }  
-
   const [ postList, setPostList ] = useState( [] ); 
   const [initialList, setInitialList] = useState( [] );
   const [ filterCat, setFilterCat ] = useState( 'all' ); 
@@ -87,10 +83,10 @@ function App() {
               src={op.image}
           />
           <CardContent>
-            <Typography  variant="h5" component="h2">
+            <Typography  variant="h4" component="h2">
               {op.title}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body" color="textSecondary" component="p">
               {op.description}
             </Typography>
           </CardContent>

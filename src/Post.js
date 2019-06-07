@@ -3,13 +3,11 @@ import PostCard from './PostCard';
 import './Card.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
+import Icon from '@material-ui/core/Icon';
+import { NavLink } from 'react-router-dom';
 
 
 function Post( props ) {
-
-  function backPreviousPage(){
-    props.history.goBack()
-  }
 
    return (
      <div>
@@ -17,8 +15,6 @@ function Post( props ) {
        <Grid container direction="row" > 
          <PostCard posts={props.posts} handleOpenPost={props.handleOpenPost}/>
        </Grid>    
-       <Button variant="contained" color="primary" onClick={backPreviousPage} >Go Back</Button>
-
      </div>
    );
   
